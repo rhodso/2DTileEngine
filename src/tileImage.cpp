@@ -26,23 +26,27 @@ void tileImage::incrementState(){
     }
 }
 void tileImage::loadImages(std::string ext){
+    try{
+        //For every file in a given directory, check if it's a png and if it is then load it
+        for (const auto & file : std::filesystem::directory_iterator(fileRoot)){
+            //Create a temporary image
+            ofImage tmp;
 
-
-    //For every file in a given directory, check if it's a png and if it is then load it
-    for (const auto & file : std::filesystem::directory_iterator(fileRoot)){
-        //Create a temporary image
-        ofImage tmp;
-
-        //If the extention matches, load it and add to the vector
-        if(file.path().extension() == ext){
-            tmp.load(file.path());
-            imageFiles.push_back(tmp);
-            debugger::log("Loaded image: " + file.path().string());
+            //If the extention matches, load it and add to the vector
+            if(file.path().extension() == ext){
+                tmp.load(file.path());
+                imageFiles.push_back(tmp);
+                debugger::log("Loaded image: " + file.path().string());
+            }
         }
+        maxStates = imageFiles.size(); //Ensure that the maxState is set so we don't segFault
+    } catch(std::exception e){
+        //Catch errors from accessing file system in case something got deleted
+        //Fucking users
+        debugger::logErr(e.what());
     }
-    maxStates = imageFiles.size();
 }
 void tileImage::draw(float _x, float _y, bool stateChange){
-    if(stateChange){ incrementState(); }
-    imageFiles[state].draw(_x, _y);
+    if(stateChange){ incrementState(); } //Change the state if we want
+    imageFiles[state].draw(_x, _y); //Draw the image
 }

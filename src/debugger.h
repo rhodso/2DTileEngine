@@ -17,6 +17,7 @@ public:
 	//Methods
 	static void log(std::string msg);       //Log message if debug is enabled
 	static void logIgnore(std::string msg); //Log message regardless if debug is enabled or not
+    static void logErr(std::string msg);
 
 private:
 	static bool debug; //Wheather debug is enabled or not
