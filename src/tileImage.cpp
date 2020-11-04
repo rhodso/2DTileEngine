@@ -46,7 +46,12 @@ void tileImage::loadImages(std::string ext){
         debugger::logErr(e.what());
     }
 }
-void tileImage::draw(float _x, float _y, bool stateChange){
+void tileImage::draw(float _x, float _y, bool stateChange, float _w, float _h){
     if(stateChange){ incrementState(); } //Change the state if we want
-    imageFiles[state].draw(_x, _y); //Draw the image
+    if(_w == 0 && _h == 0){
+        imageFiles[state].draw(_x, _y); //Draw the image
+    } else {
+        imageFiles[state].draw(_x, _y, _w, _h); //Draw the image, but scaled
+    }
 }
+

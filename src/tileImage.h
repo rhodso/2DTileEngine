@@ -24,7 +24,7 @@ class tileImage {
 
 		//Other methods
 		void incrementState();
-        void draw(float _x, float _y, bool stateChange = true);
+        void draw(float _x, float _y, bool stateChange = true, float _w = 0, float _h = 0);
         void loadImages(std::string ext = ".png");
 
 	private:
