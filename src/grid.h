@@ -3,6 +3,7 @@
 
 #include "ofMain.h"
 #include "tile.h"
+#include <tileImage.h>
 
 class grid
 {

@@ -67,7 +67,7 @@ void grid::createGrid(){
 			a.setGridX(i);
 			a.setGridY(j);
 
-			//Push to back of tile queue
+            //Push to back of tile queue
 			tmp.push_back(a);
 		}
 		//Push completed "row" to back of tile vector

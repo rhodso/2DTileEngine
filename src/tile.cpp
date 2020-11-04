@@ -8,6 +8,11 @@ tile::tile(float _x, float _y){
 	x = _x;
 	y = _y;
 }
+tile::tile(float _x, float _y, tileImage _i){
+    x = _x;
+    y = _y;
+    i = _i;
+}
 tile::tile(float _x, float _y, ofColor _c){
 	x = _x;
 	y = _y;
@@ -34,5 +39,8 @@ void tile::draw(){
 	//Set to correct colour and draw square
 	ofSetColor(colour);
 	ofDrawRectangle(x-(size/2.0),y-(size/2.0),size,size);
+    if(imageSet){
+        i.draw(x,y,true);
+    }
 }
 

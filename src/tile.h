@@ -2,12 +2,14 @@
 #define TILE_H
 
 #include "ofMain.h"
+#include <tileImage.h>
 
 class tile{
 public:
 	//Constructors and destructors
 	tile();
 	tile(float _x, float _y);
+    tile(float _x, float _y, tileImage _i);
 	tile(float _x, float _y, ofColor _c);
 	~tile();
 
@@ -44,6 +46,10 @@ private:
 
 	//Size
 	inline static float size = 30;
+
+    //Image vars
+    bool imageSet = false;
+    tileImage i;
 
 };
 

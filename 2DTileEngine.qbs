@@ -18,6 +18,8 @@ Project{
             "src/grid.h",
             "src/tile.cpp",
             "src/tile.h",
+            "src/tileImage.cpp",
+            "src/tileImage.h",
             'src/main.cpp',
             'src/ofApp.cpp',
             'src/ofApp.h',
